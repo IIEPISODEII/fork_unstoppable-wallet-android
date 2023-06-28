@@ -183,64 +183,64 @@ fun BalanceCard(
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(3.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        Box(
-                            modifier = Modifier.weight(1f),
-                        ) {
-                            if (viewItem.syncingTextValue.visible) {
-                                subhead2_grey(
-                                    text = viewItem.syncingTextValue.value ?: "",
-                                    maxLines = 1,
-                                )
-                            }
-                            if (viewItem.exchangeValue.visible) {
-                                Row {
-                                    Text(
-                                        text = viewItem.exchangeValue.value,
-                                        color = if (viewItem.exchangeValue.dimmed) ComposeAppTheme.colors.grey50 else ComposeAppTheme.colors.grey,
-                                        style = ComposeAppTheme.typography.subhead2,
-                                        maxLines = 1,
-                                    )
-                                    Text(
-                                        modifier = Modifier.padding(start = 4.dp),
-                                        text = RateText(viewItem.diff),
-                                        color = RateColor(viewItem.diff),
-                                        style = ComposeAppTheme.typography.subhead2,
-                                        maxLines = 1,
-                                    )
-                                }
-                            }
-                        }
-                        Box(
-                            modifier = Modifier.padding(start = 16.dp),
-                        ) {
-                            if (viewItem.syncedUntilTextValue.visible) {
-                                subhead2_grey(
-                                    text = viewItem.syncedUntilTextValue.value ?: "",
-                                    maxLines = 1,
-                                )
-                            }
-                            if (viewItem.secondaryValue.visible) {
-                                Text(
-                                    text = viewItem.secondaryValue.value,
-                                    color = if (viewItem.secondaryValue.dimmed) ComposeAppTheme.colors.grey50 else ComposeAppTheme.colors.grey,
-                                    style = ComposeAppTheme.typography.subhead2,
-                                    maxLines = 1,
-                                )
-                            }
-                        }
-                    }
+//                    Spacer(modifier = Modifier.height(3.dp))
+//
+//                    Row(
+//                        modifier = Modifier.fillMaxWidth(),
+//                    ) {
+//                        Box(
+//                            modifier = Modifier.weight(1f),
+//                        ) {
+//                            if (viewItem.syncingTextValue.visible) {
+//                                subhead2_grey(
+//                                    text = viewItem.syncingTextValue.value ?: "",
+//                                    maxLines = 1,
+//                                )
+//                            }
+//                            if (viewItem.exchangeValue.visible) {
+//                                Row {
+//                                    Text(
+//                                        text = viewItem.exchangeValue.value,
+//                                        color = if (viewItem.exchangeValue.dimmed) ComposeAppTheme.colors.grey50 else ComposeAppTheme.colors.grey,
+//                                        style = ComposeAppTheme.typography.subhead2,
+//                                        maxLines = 1,
+//                                    )
+//                                    Text(
+//                                        modifier = Modifier.padding(start = 4.dp),
+//                                        text = RateText(viewItem.diff),
+//                                        color = RateColor(viewItem.diff),
+//                                        style = ComposeAppTheme.typography.subhead2,
+//                                        maxLines = 1,
+//                                    )
+//                                }
+//                            }
+//                        }
+//                        Box(
+//                            modifier = Modifier.padding(start = 16.dp),
+//                        ) {
+//                            if (viewItem.syncedUntilTextValue.visible) {
+//                                subhead2_grey(
+//                                    text = viewItem.syncedUntilTextValue.value ?: "",
+//                                    maxLines = 1,
+//                                )
+//                            }
+//                            if (viewItem.secondaryValue.visible) {
+//                                Text(
+//                                    text = viewItem.secondaryValue.value,
+//                                    color = if (viewItem.secondaryValue.dimmed) ComposeAppTheme.colors.grey50 else ComposeAppTheme.colors.grey,
+//                                    style = ComposeAppTheme.typography.subhead2,
+//                                    maxLines = 1,
+//                                )
+//                            }
+//                        }
+//                    }
                 }
 
                 Spacer(modifier = Modifier.width(16.dp))
             }
         }
 
-        ExpandableContent(viewItem, navController, viewModel)
+//        ExpandableContent(viewItem, navController, viewModel)
     }
 }
 

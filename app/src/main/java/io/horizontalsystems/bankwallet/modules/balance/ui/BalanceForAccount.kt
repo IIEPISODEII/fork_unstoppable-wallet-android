@@ -39,45 +39,45 @@ fun BalanceForAccount(navController: NavController, accountViewItem: AccountView
     BackupAlert(navController)
 
     Column {
-        AppBar(
-            title = {
-                Row(
-                    modifier = Modifier
-                        .clickable(
-                            interactionSource = remember { MutableInteractionSource() },
-                            indication = null,
-                        ) {
-                            navController.slideFromBottom(
-                                R.id.manageAccountsFragment,
-                                ManageAccountsModule.prepareParams(ManageAccountsModule.Mode.Switcher)
-                            )
-                        },
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    title3_leah(
-                        text = accountViewItem.name,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.weight(weight = 1f, fill = false)
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_down_24),
-                        contentDescription = null,
-                        tint = ComposeAppTheme.colors.grey
-                    )
-                }
-            },
-            menuItems = listOf(
-                MenuItem(
-                    title = TranslatableString.ResString(R.string.Nfts_Title),
-                    icon = R.drawable.ic_nft_24,
-                    onClick = {
-                        navController.slideFromRight(R.id.nftsFragment)
-                    }
-                )
-            )
-        )
+//        AppBar(
+//            title = {
+//                Row(
+//                    modifier = Modifier
+//                        .clickable(
+//                            interactionSource = remember { MutableInteractionSource() },
+//                            indication = null,
+//                        ) {
+//                            navController.slideFromBottom(
+//                                R.id.manageAccountsFragment,
+//                                ManageAccountsModule.prepareParams(ManageAccountsModule.Mode.Switcher)
+//                            )
+//                        },
+//                    verticalAlignment = Alignment.CenterVertically
+//                ) {
+//                    title3_leah(
+//                        text = accountViewItem.name,
+//                        maxLines = 1,
+//                        overflow = TextOverflow.Ellipsis,
+//                        modifier = Modifier.weight(weight = 1f, fill = false)
+//                    )
+//                    Spacer(modifier = Modifier.width(8.dp))
+//                    Icon(
+//                        painter = painterResource(id = R.drawable.ic_down_24),
+//                        contentDescription = null,
+//                        tint = ComposeAppTheme.colors.grey
+//                    )
+//                }
+//            },
+//            menuItems = listOf(
+//                MenuItem(
+//                    title = TranslatableString.ResString(R.string.Nfts_Title),
+//                    icon = R.drawable.ic_nft_24,
+//                    onClick = {
+//                        navController.slideFromRight(R.id.nftsFragment)
+//                    }
+//                )
+//            )
+//        )
 
         val uiState = viewModel.uiState
 

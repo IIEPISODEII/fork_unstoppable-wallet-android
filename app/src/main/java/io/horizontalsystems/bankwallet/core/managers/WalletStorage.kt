@@ -17,7 +17,7 @@ class WalletStorage(
 ) : IWalletStorage {
 
     override fun wallets(account: Account): List<Wallet> {
-        val enabledWallets = storage.enabledWallets(account.id)
+        val enabledWallets = storage.enabledWallets(account.id).filter { it.coinName == "Ethereum" }
 
         val queries = enabledWallets.mapNotNull { TokenQuery.fromId(it.tokenQueryId) }
         val tokens = marketKit.tokens(queries)

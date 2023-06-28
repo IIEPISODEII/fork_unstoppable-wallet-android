@@ -144,117 +144,117 @@ fun BalanceItems(
     }
 
     Column {
-        val context = LocalContext.current
-
-        when (totalState) {
-            TotalUIState.Hidden -> {
-                DoubleText(
-                    title = "*****",
-                    body = "*****",
-                    dimmed = false,
-                    onClickTitle = {
-                        viewModel.toggleBalanceVisibility()
-                        HudHelper.vibrate(context)
-                    },
-                    onClickSubtitle = {
-                        viewModel.toggleTotalType()
-                        HudHelper.vibrate(context)
-                    }
-                )
-            }
-            is TotalUIState.Visible -> {
-                DoubleText(
-                    title = totalState.primaryAmountStr,
-                    body = totalState.secondaryAmountStr,
-                    dimmed = totalState.dimmed,
-                    onClickTitle = {
-                        viewModel.toggleBalanceVisibility()
-                        HudHelper.vibrate(context)
-                    },
-                    onClickSubtitle = {
-                        viewModel.toggleTotalType()
-                        HudHelper.vibrate(context)
-                    },
-                )
-            }
-        }
-
-        HeaderSorting(borderTop = true) {
-            var showSortTypeSelectorDialog by remember { mutableStateOf(false) }
-
-            ButtonSecondaryTransparent(
-                title = stringResource(viewModel.sortType.getTitleRes()),
-                iconRight = R.drawable.ic_down_arrow_20,
-                onClick = {
-                    showSortTypeSelectorDialog = true
-                }
-            )
-
-            if (showSortTypeSelectorDialog) {
-                SelectorDialogCompose(
-                    title = stringResource(R.string.Balance_Sort_PopupTitle),
-                    items = viewModel.sortTypes.map {
-                        TabItem(stringResource(it.getTitleRes()), it == viewModel.sortType, it)
-                    },
-                    onDismissRequest = {
-                        showSortTypeSelectorDialog = false
-                    },
-                    onSelectItem = {
-                        viewModel.sortType = it
-                    }
-                )
-            }
-
-            Spacer(modifier = Modifier.weight(1f))
-
-            if (accountViewItem.isWatchAccount) {
-                Image(
-                    painter = painterResource(R.drawable.icon_binocule_24),
-                    contentDescription = "binoculars icon"
-                )
-            } else {
-                ButtonSecondaryCircle(
-                    icon = R.drawable.ic_manage_2,
-                    contentDescription = stringResource(R.string.ManageCoins_title),
-                    onClick = {
-                        navController.slideFromRight(R.id.manageWalletsFragment)
-                    }
-                )
-            }
-
-            Spacer(modifier = Modifier.width(16.dp))
-        }
-
-        when (uiState.headerNote) {
-            HeaderNote.None -> Unit
-            HeaderNote.NonStandardAccount -> {
-                NoteError(
-                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 24.dp),
-                    text = stringResource(R.string.AccountRecovery_MigrationRequired),
-                    onClick = {
-                        FaqManager.showFaqPage(
-                            navController,
-                            FaqManager.faqPathMigrationRequired
-                        )
-                    }
-                )
-            }
-            HeaderNote.NonRecommendedAccount -> {
-                NoteWarning(
-                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 24.dp),
-                    text = stringResource(R.string.AccountRecovery_MigrationRecommended),
-                    onClick = {
-                        FaqManager.showFaqPage(
-                            navController,
-                            FaqManager.faqPathMigrationRecommended
-                        )
-                    },
-                    onClose = {
-                        viewModel.onCloseHeaderNote(HeaderNote.NonRecommendedAccount)
-                    }
-                )
-            }
-        }
+//        val context = LocalContext.current
+//
+//        when (totalState) {
+//            TotalUIState.Hidden -> {
+//                DoubleText(
+//                    title = "*****",
+//                    body = "*****",
+//                    dimmed = false,
+//                    onClickTitle = {
+//                        viewModel.toggleBalanceVisibility()
+//                        HudHelper.vibrate(context)
+//                    },
+//                    onClickSubtitle = {
+//                        viewModel.toggleTotalType()
+//                        HudHelper.vibrate(context)
+//                    }
+//                )
+//            }
+//            is TotalUIState.Visible -> {
+//                DoubleText(
+//                    title = totalState.primaryAmountStr,
+//                    body = totalState.secondaryAmountStr,
+//                    dimmed = totalState.dimmed,
+//                    onClickTitle = {
+//                        viewModel.toggleBalanceVisibility()
+//                        HudHelper.vibrate(context)
+//                    },
+//                    onClickSubtitle = {
+//                        viewModel.toggleTotalType()
+//                        HudHelper.vibrate(context)
+//                    },
+//                )
+//            }
+//        }
+//
+//        HeaderSorting(borderTop = true) {
+//            var showSortTypeSelectorDialog by remember { mutableStateOf(false) }
+//
+//            ButtonSecondaryTransparent(
+//                title = stringResource(viewModel.sortType.getTitleRes()),
+//                iconRight = R.drawable.ic_down_arrow_20,
+//                onClick = {
+//                    showSortTypeSelectorDialog = true
+//                }
+//            )
+//
+//            if (showSortTypeSelectorDialog) {
+//                SelectorDialogCompose(
+//                    title = stringResource(R.string.Balance_Sort_PopupTitle),
+//                    items = viewModel.sortTypes.map {
+//                        TabItem(stringResource(it.getTitleRes()), it == viewModel.sortType, it)
+//                    },
+//                    onDismissRequest = {
+//                        showSortTypeSelectorDialog = false
+//                    },
+//                    onSelectItem = {
+//                        viewModel.sortType = it
+//                    }
+//                )
+//            }
+//
+//            Spacer(modifier = Modifier.weight(1f))
+//
+//            if (accountViewItem.isWatchAccount) {
+//                Image(
+//                    painter = painterResource(R.drawable.icon_binocule_24),
+//                    contentDescription = "binoculars icon"
+//                )
+//            } else {
+//                ButtonSecondaryCircle(
+//                    icon = R.drawable.ic_manage_2,
+//                    contentDescription = stringResource(R.string.ManageCoins_title),
+//                    onClick = {
+//                        navController.slideFromRight(R.id.manageWalletsFragment)
+//                    }
+//                )
+//            }
+//
+//            Spacer(modifier = Modifier.width(16.dp))
+//        }
+//
+//        when (uiState.headerNote) {
+//            HeaderNote.None -> Unit
+//            HeaderNote.NonStandardAccount -> {
+//                NoteError(
+//                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 24.dp),
+//                    text = stringResource(R.string.AccountRecovery_MigrationRequired),
+//                    onClick = {
+//                        FaqManager.showFaqPage(
+//                            navController,
+//                            FaqManager.faqPathMigrationRequired
+//                        )
+//                    }
+//                )
+//            }
+//            HeaderNote.NonRecommendedAccount -> {
+//                NoteWarning(
+//                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 24.dp),
+//                    text = stringResource(R.string.AccountRecovery_MigrationRecommended),
+//                    onClick = {
+//                        FaqManager.showFaqPage(
+//                            navController,
+//                            FaqManager.faqPathMigrationRecommended
+//                        )
+//                    },
+//                    onClose = {
+//                        viewModel.onCloseHeaderNote(HeaderNote.NonRecommendedAccount)
+//                    }
+//                )
+//            }
+//        }
 
         Wallets(balanceViewItems, viewModel, navController, accountViewItem.id, viewModel.sortType, uiState)
     }
